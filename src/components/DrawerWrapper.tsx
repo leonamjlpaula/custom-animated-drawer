@@ -5,6 +5,7 @@ import Animated, {
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
+import { Colors } from "../constants/colors";
 
 export const DrawerWrapper = ({ children }: { children: ReactNode }) => {
   const deviceWidth = Dimensions.get("window").width;
@@ -54,6 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   backgroundView: {
-    backgroundColor: "#280cb3",
+    backgroundColor: Colors.purple,
   },
 });

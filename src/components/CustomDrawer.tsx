@@ -1,11 +1,17 @@
-import { useDrawerProgress } from "@react-navigation/drawer";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  DrawerContentComponentProps,
+  DrawerItemList,
+  useDrawerProgress,
+  DrawerContentScrollView,
+} from "@react-navigation/drawer";
+import { Text, StyleSheet } from "react-native";
 import Animated, {
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
+import { Colors } from "../constants/colors";
 
-export const CustomDrawer = () => {
+export const CustomDrawer = (props: DrawerContentComponentProps) => {
   const drawerProgress = useDrawerProgress();
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -17,28 +23,26 @@ export const CustomDrawer = () => {
   }));
 
   return (
-    <View style={StyleSheet.absoluteFill}>
-      <Animated.View style={[styles.drawerContent, animatedStyle]}>
-        <Text style={styles.menuItem}>🏠 Home</Text>
-        <Text style={styles.menuItem}>⚙️ Settings</Text>
-        <Text style={styles.menuItem}>📞 Contact</Text>
-      </Animated.View>
-    </View>
+    <Animated.View style={[styles.drawerContent, animatedStyle]}>
+      <DrawerContentScrollView {...props}>
+        <Text style={styles.title}>Beka</Text>
+        <DrawerItemList {...props} />
+      </DrawerContentScrollView>
+    </Animated.View>
   );
 };
 
 const styles = StyleSheet.create({
   drawerContent: {
     flex: 1,
-    backgroundColor: "#280cb3",
-    paddingTop: 100,
-    paddingLeft: 30,
-    borderRadius: 24,
-    borderTopEndRadius: 0,
+    backgroundColor: Colors.purple,
+    borderTopStartRadius: 24,
   },
-  menuItem: {
-    color: "#fff",
-    fontSize: 22,
-    marginVertical: 15,
+  title: {
+    fontSize: 30,
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    marginBottom: 60,
   },
 });
