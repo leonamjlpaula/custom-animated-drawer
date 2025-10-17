@@ -7,7 +7,7 @@ export const Header = ({ title }: { title: string }) => {
   const navigation = useNavigation();
 
   const openDrawer = () => {
-    navigation.dispatch(DrawerActions.openDrawer());
+    navigation.dispatch(DrawerActions.toggleDrawer());
   };
 
   return (
