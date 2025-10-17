@@ -14,14 +14,8 @@ export const DrawerNavigator = () => {
     <Drawer.Navigator    
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: Colors.transparent,
-        drawerInactiveBackgroundColor: Colors.transparent,
-        drawerActiveTintColor: Colors.active,
-        drawerInactiveTintColor: Colors.inactive,
-        // drawerHideStatusBarOnOpen: Platform.OS === 'ios' ? true : false,
         overlayColor: Colors.transparent,
         drawerStyle: {
-          // backgroundColor: Colors.bg,
           width: '50%',
         },
       
