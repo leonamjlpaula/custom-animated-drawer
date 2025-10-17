@@ -2,6 +2,8 @@ import { useNavigation } from '@react-navigation/native';
 import {Button, Text, StyleSheet, View} from 'react-native'
 import { StackParamList } from '../navigators/HomeStackNavigator';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Header } from '../components/Header';
+import { SafeAreaView} from 'react-native-safe-area-context';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<
   StackParamList,
@@ -17,10 +19,13 @@ export const StackScreen1 = () => {
   }
 
  return (
-    <View style={styles.container}>
-      <Text>StackScreen1</Text>
-      <Button title='Go to Screen 2' onPress={handleNavigation}/>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Header title='Screen1'/>
+      <View style={styles.container}>      
+        <Text>StackScreen1</Text>
+        <Button title='Go to Screen 2' onPress={handleNavigation}/>
+      </View>
+    </SafeAreaView>
  )   
 }
 
