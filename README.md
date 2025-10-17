@@ -4,8 +4,7 @@ How to run this app:
 
 2. Start Expo: `npx expo start`
 
-3. Choose the preferred device to run.
-
+3. Press `i` run.
 
 Demo
 
