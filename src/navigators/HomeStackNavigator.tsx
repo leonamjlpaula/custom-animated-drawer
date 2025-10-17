@@ -2,7 +2,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StackScreen1 } from "../screens/StackScreen1";
 import { StackScreen2 } from "../screens/StackScreen2";
 
-const Stack = createNativeStackNavigator();
+export type StackParamList = {
+  Screen1: undefined;
+  Screen2: undefined;
+}; 
+
+const Stack = createNativeStackNavigator<StackParamList>();
 
 export const HomeStack = () => {
 
