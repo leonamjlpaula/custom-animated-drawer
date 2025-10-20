@@ -11,15 +11,16 @@ export const DrawerNavigator = () => {
     <Drawer.Navigator
       screenOptions={{
         headerShown: false,
+        drawerType: "slide",
         overlayColor: Colors.transparent,
         drawerStyle: {
           width: "50%",
         },
-        drawerActiveTintColor: "#dc7864",
-        drawerInactiveTintColor: "white",
-        drawerActiveBackgroundColor: "#3c2a3c",
+        drawerActiveTintColor: Colors.orange,
+        drawerInactiveTintColor: Colors.white,
         drawerItemStyle: { borderRadius: 16 },
         drawerLabelStyle: { fontSize: 22, fontWeight: "light" },
+        sceneStyle: { backgroundColor: Colors.white },
       }}
       drawerContent={(props) => <CustomDrawer {...props} />}
     >

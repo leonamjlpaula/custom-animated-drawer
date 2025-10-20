@@ -9,24 +9,20 @@ import { Colors } from "../constants/colors";
 
 export const DrawerWrapper = ({ children }: { children: ReactNode }) => {
   const deviceWidth = Dimensions.get("window").width;
+  const deviceHeight = Dimensions.get("window").height;
 
   const drawerProgress = useDrawerProgress();
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [
-      {
-        translateX: interpolate(
-          drawerProgress.value,
-          [0, 1],
-          [0, deviceWidth / 2 - 120],
-          "clamp",
-        ),
-      },
+      { translateX: deviceWidth / 2 },
+      { translateY: -deviceHeight / 2 },
       {
         rotateZ: `${interpolate(drawerProgress.value, [0, 1], [0, -10], "clamp")}deg`,
       },
+      { translateX: -deviceWidth / 2 },
+      { translateY: deviceHeight / 2 },
     ],
-    scale: interpolate(drawerProgress.value, [0, 1], [1, 0.8], "clamp"),
     borderRadius: interpolate(drawerProgress.value, [0, 1], [0, 24], "clamp"),
     overflow: "hidden",
   }));
